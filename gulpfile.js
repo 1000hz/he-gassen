@@ -35,7 +35,7 @@ gulp.task('clean', function (cb) {
 })
 
 gulp.task('copy', function () {
-  return gulp.src(paths.src.html)
+  return gulp.src([paths.src.html, paths.src.img + '{favicon,apple-touch-icon}.png'])
     .pipe(gulp.dest(paths.dest.html))
 })
 
