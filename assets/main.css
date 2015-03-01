@@ -336,12 +336,12 @@ body {
   opacity: 1; }
 
 .title {
-  font-size: 10vh;
+  font-size: 15vh;
   margin-bottom: 0; }
 
 .subtitle {
-  font-size: 4.4vh;
-  margin-top: -2.4vh; }
+  font-size: 6.6vh;
+  margin-top: -3.6vh; }
 
 .container-bg {
   position: fixed;
@@ -354,5 +354,10 @@ body {
   z-index: -1; }
 
 .hegassen {
-  background-image: url('hegassen.jpg');
-  background-position: right center; }
+  background-image: url('hegassen.jpg'); }
+
+.position {
+  position: fixed;
+  top: 4vh;
+  left: 4vh;
+  font-size: 10vh; }
