@@ -1,6 +1,6 @@
 {
   "name": "hegassen",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "[f]art",
   "main": "dist/assets/main.js",
   "dependencies": {
