@@ -5,6 +5,7 @@ var sass         = require('gulp-sass')
 var autoprefixer = require('gulp-autoprefixer')
 var imagemin     = require('gulp-imagemin')
 var del          = require('del')
+var webpack      = require('webpack')
 var browserSync  = require('browser-sync')
 var reload       = browserSync.reload
 
@@ -39,9 +40,18 @@ gulp.task('copy', function () {
     .pipe(gulp.dest(paths.dest.html))
 })
 
-gulp.task('js', function () {
-  return gulp.src(paths.src.js)
-    .pipe(gulp.dest(paths.dest.js))
+gulp.task('js', ['webpack'])
+
+var execWebpack = function(config) {
+  return webpack(config, function(err, stats) {
+    if (err) throw new gutil.PluginError("execWebpack", err);
+    return gutil.log("[execWebpack]", stats.toString({colors: true}))
+  })
+}
+
+gulp.task('webpack', function (callback) {
+  execWebpack(require('./webpack.config.js'))
+  callback()
 })
 
 gulp.task('css', function () {
@@ -75,3 +85,5 @@ gulp.task('watch', function () {
 })
 
 gulp.task('build', ['copy', 'css', 'js', 'img'])
+
+gulp.task('default', ['serve'])

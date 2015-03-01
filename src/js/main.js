@@ -1,60 +1,28 @@
-+function () {
-  var $hegassen = $('.hegassen')
-  var $title    = $('.page-title')
+var animate     = require('./util/animate')
+var Page        = require('./page')
+var actors      = require('./actors')
 
-  document.body.style.height = '80000px'
+var hegassen = document.querySelector('.hegassen')
+var title    = document.querySelector('.page-title')
+var position = document.querySelector('.position')
 
-  var WIDTH  = 29288
-  var HEIGHT = 959
+document.body.style.height = '60000px'
+window.setTimeout(function () { document.body.scrollTop = 0 }, 100)
 
-  var width
-  var scrollHeight
-  var scrollWidth
+var page = new Page(29288, 959)
 
-  setWidth()
-  $(window).on('resize', setWidth)
+window.onresize = window.onload = function () {
+  page.init()
+  hegassen.style.width = page.width + 'px'
+}
 
-  function setWidth() {
-    width = WIDTH * window.innerHeight / HEIGHT
-    scrollHeight = document.body.scrollHeight - window.innerHeight
-    scrollWidth  =  width - window.innerWidth
-    $hegassen.css({width: width})
-  }
+var render = function () {
+  page.updatePosition()
+  if (window.POSITION) position.innerHTML = page.position.toFixed(2) + '%'
 
-  function bound(x, min, max) {
-    return x > max ? max
-         : x < min ? min
-         : x
-  }
+  animate(page, actors)
+  window.requestAnimationFrame(render)
+}
 
-  var prevPosition  = document.body.scrollTop / scrollHeight;
-  var titleKeyframe = 0.006386128676101576
-
-  var render = function () {
-    var position   = document.body.scrollTop / scrollHeight
-    var translateX = scrollWidth * position - scrollWidth
-
-    translateX = bound(translateX, -scrollWidth, 0).toFixed(3)
-
-    $hegassen.css({
-      transform: 'translate3d(' + translateX + 'px, 0, 0)'
-    })
-
-    if (prevPosition < titleKeyframe) {
-      var boundedPos = bound(position, 0, titleKeyframe) / titleKeyframe
-      var translateY = boundedPos * -14
-      var scale = 1.5 - boundedPos * 0.5
-      $title.css({
-        transform: 'translate3d(0, ' + translateY + 'vh, 0) scale3d(' + scale + ', ' + scale + ',1)'
-      })
-    }
-
-    prevPosition = position
-    window.requestAnimationFrame(render)
-  }
-
-  render()
-}()
-
-
-
+window.onload()
+render()

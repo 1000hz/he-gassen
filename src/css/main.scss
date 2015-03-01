@@ -20,13 +20,13 @@ body {
 
 
 .title {
-  font-size: 10vh;
+  font-size: 15vh;
   margin-bottom: 0;
 }
 
 .subtitle {
-  font-size: 4.4vh;
-  margin-top: -2.4vh;
+  font-size: 6.6vh;
+  margin-top: -3.6vh;
 }
 
 .container-bg {
@@ -42,5 +42,11 @@ body {
 
 .hegassen {
   background-image: url('hegassen.jpg');
-  background-position: right center;
+}
+
+.position {
+  position: fixed;
+  top: 4vh;
+  left: 4vh;
+  font-size: 10vh;
 }
