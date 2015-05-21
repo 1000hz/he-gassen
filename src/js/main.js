@@ -18,7 +18,8 @@ window.onresize = window.onload = function () {
 
 var render = function () {
   page.updatePosition()
-  if (window.POSITION) position.innerHTML = page.position.toFixed(2) + '%'
+  if (window.POSITION)
+    position.innerHTML = page.position.toFixed(2) + '%'
 
   animate(page, actors)
   window.requestAnimationFrame(render)
