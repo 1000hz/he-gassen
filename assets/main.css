@@ -364,7 +364,8 @@ body {
 
 .speech {
   position: absolute;
-  font-size: 5vh; }
+  font-size: 5vh;
+  text-shadow: 0 0 6px #fff; }
 
 .yo {
   top: 32vh;
@@ -373,6 +374,42 @@ body {
 .hehe {
   top: 29vh;
   right: 98vh; }
+
+.dem-boys {
+  top: 44vh;
+  right: 87vh; }
+
+.neigh {
+  top: 40vh;
+  right: 162vh; }
+
+.dank {
+  top: 23vh;
+  right: 183vh; }
+
+.weed-shirt {
+  top: 23vh;
+  right: 230vh; }
+
+.s-420 {
+  top: 46vh;
+  right: 262vh; }
+
+.caught-a-body {
+  top: 23vh;
+  right: 310vh; }
+
+.week-ago-1 {
+  top: 23vh;
+  right: 350vh; }
+
+.week-ago-2 {
+  top: 17vh;
+  right: 355vh; }
+
+.week-ago-3 {
+  top: 29vh;
+  right: 370vh; }
 
 .tite {
   top: 23vh;
@@ -391,5 +428,5 @@ body {
   right: 16vh; }
 
 .tite-5 {
-  top: -4vh;
-  right: -8vh; }
+  top: -5vh;
+  right: -4vh; }
