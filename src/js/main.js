@@ -6,8 +6,8 @@ var hegassen = document.querySelector('.hegassen')
 var title    = document.querySelector('.page-title')
 var position = document.querySelector('.position')
 
-document.body.style.height = '60000px'
-window.setTimeout(function () { document.body.scrollTop = 0 }, 100)
+document.documentElement.style.height = '60000px'
+window.setTimeout(function () { document.documentElement.scrollTop = 0 }, 100)
 
 var page = new Page(29288, 959)
 
